@@ -9,11 +9,11 @@ before_install:
 script:
    - docker run  -e CI=true 1078aco/react-test npm test
 
-#after_success:
-#    - docker build -t 1078aco/multi-client ./client
-#    - docker build -t 1078aco/multi-nginx ./nginx
-#    - docker build -t 1078aco/multi-server ./server
-#    - docker build -t 1078aco/multi-worker ./worker
+after_success:
+    - docker build -t 1078aco/multi-client ./client
+    - docker build -t 1078aco/multi-nginx ./nginx
+    - docker build -t 1078aco/multi-server ./server
+    - docker build -t 1078aco/multi-worker ./worker
 #login to the docker CLI
 #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 #take image and push then to docker hub
